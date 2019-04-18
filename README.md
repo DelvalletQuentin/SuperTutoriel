@@ -22,3 +22,5 @@ Voici une liste de site utile qui aide à la création d'un jeu :
 - Génération de sons simple en 8-bit : https://www.bfxr.net/
 - Bibliothèque de ressources graphiques et audio parfois libre de droit : https://opengameart.org/
 - Bibliothèque de ressources audio parfois libre de droit : https://freesound.org/
+
+![Image du casse-brique](https://i.imgur.com/b2wmAkt.png)
