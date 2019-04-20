@@ -135,7 +135,10 @@ namespace SuperTutoriel.Classes.GameObjects
                 if (widthY > heightX)
                 {
                     // Collision sur le côté haut du joueur.
-                    this.Speed = new Vector2(-distanceX / 10f, -this.Speed.Y);
+
+                    // On change la vitesse horizontale de la balle en fonction de la distance
+                    // du centre du joueur et de la vitesse du joueur.
+                    this.Speed = new Vector2(-distanceX / 10f + player.Speed.X/2, -this.Speed.Y);
                 }
             }
         }

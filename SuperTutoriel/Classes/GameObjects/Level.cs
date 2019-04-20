@@ -106,7 +106,7 @@ namespace SuperTutoriel.Classes.GameObjects
         {
             Ball ball = new Ball()
             {
-                Position = new Vector2(RandomManager.RandomInteger(0, Constantes.WindowWidth), Constantes.WindowHeight/2)
+                Position = new Vector2(RandomManager.RandomInteger(0, Constantes.WindowWidth), Constantes.WindowHeight - 50)
             };
 
             Balls.Add(ball);

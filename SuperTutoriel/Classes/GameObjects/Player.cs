@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using SuperTutoriel.Classes.Managers;
+using System;
 
 namespace SuperTutoriel.Classes.GameObjects
 {
@@ -9,6 +10,15 @@ namespace SuperTutoriel.Classes.GameObjects
     /// </summary>
     public class Player : GameObject
     {
+        #region Propriétés
+
+        /// <summary>
+        /// Vitesse maximal.
+        /// </summary>
+        protected Vector2 MaxSpeed { get; set; }
+
+        #endregion Propriétés
+
         #region Constructeur
 
         /// <summary>
@@ -19,6 +29,7 @@ namespace SuperTutoriel.Classes.GameObjects
             this.Sprite = TextureManager.Textures["Player"];
             this.Position = new Vector2(Constantes.WindowWidth/2, Constantes.WindowHeight - this.Origin.Y);
             this.Color = Color.White;
+            this.MaxSpeed = new Vector2(7, 0);
         }
 
         #endregion Constructeur
@@ -33,19 +44,31 @@ namespace SuperTutoriel.Classes.GameObjects
         {
             base.Update(gameTime);
 
-            this.Speed = Vector2.Zero;
 
             // Gére l'input de déplacement vers la gauche.
             if (Keyboard.GetState().IsKeyDown(Keys.Left))
             {
-                this.Speed = new Vector2(-5, 0);
+                // Si la vitesse n'est pas à sa valeur maximal, on accélere.
+                if (Math.Abs(this.Speed.X) < this.MaxSpeed.X) this.Speed += new Vector2(-0.25f, 0);
+            }
+            else
+            {
+                // On réduit la vitesse du joueur, si elle n'est pas déjà au minimum.
+                if(this.Speed.X < 0) this.Speed -= new Vector2(-0.25f, 0);
             }
 
             // Gére l'input de déplacement vers la droite.
             if (Keyboard.GetState().IsKeyDown(Keys.Right))
             {
-                this.Speed = new Vector2(5, 0);
+                // Si la vitesse n'est pas à sa valeur maximal, on accélere.
+                if (Math.Abs(this.Speed.X) < this.MaxSpeed.X) this.Speed += new Vector2(0.25f, 0);
             }
+            else
+            {
+                // On réduit la vitesse du joueur, si elle n'est pas déjà au minimum.
+                if (this.Speed.X > 0) this.Speed -= new Vector2(0.25f, 0);
+            }
+
 
             // Gére la collision avec le mur gauche.
             if (this.Position.X - this.Origin.X < 0)
@@ -58,6 +81,9 @@ namespace SuperTutoriel.Classes.GameObjects
             {
                 this.Position = new Vector2(Constantes.WindowWidth - this.Origin.X, this.Position.Y);
             }
+
+            // On change l'angle du joueur en fonction de sa vitesse, pour que ça soit plus sympa visuellement.
+            this.Angle = this.Speed.X * 0.03f;
         }
 
         #endregion Draw & Update
