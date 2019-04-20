@@ -23,4 +23,4 @@ Voici une liste de site utile qui aide à la création d'un jeu :
 - Bibliothèque de ressources graphiques et audio parfois libre de droit : https://opengameart.org/
 - Bibliothèque de ressources audio parfois libre de droit : https://freesound.org/
 
-![Image du casse-brique](https://i.imgur.com/b2wmAkt.png)
+![Image du casse-brique](https://i.imgur.com/JsHdGyo.png)
