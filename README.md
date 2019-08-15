@@ -15,10 +15,10 @@ Le code est entièrement commenté et a été fait en sorte qu'il soit plutôt s
 Voici une liste de site utile qui aide à la création d'un jeu :
 
 - Site officiel de Monogame : http://www.monogame.net/
-- Documentation officiel de Monogame : http://www.monogame.net/documentation/?page=main
+- Documentation officielle de Monogame : http://www.monogame.net/documentation/?page=main
 - Github de Monogame : https://github.com/MonoGame/MonoGame
 - Tutoriels détaillés sur Monogame : http://rbwhitaker.wikidot.com/monogame-tutorials
-- Monogame Extented, une extention qui ajoute beaucoup d'utilitaires en tout genre : https://github.com/craftworkgames/MonoGame.Extended
+- Monogame Extented, une extension qui ajoute beaucoup d'utilitaires en tout genre : https://github.com/craftworkgames/MonoGame.Extended
 - Génération de sons simple en 8-bit : https://www.bfxr.net/
 - Bibliothèque de ressources graphiques et audio parfois libre de droit : https://opengameart.org/
 - Bibliothèque de ressources audio parfois libre de droit : https://freesound.org/
