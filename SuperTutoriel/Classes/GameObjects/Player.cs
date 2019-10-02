@@ -16,6 +16,16 @@ namespace SuperTutoriel.Classes.GameObjects
         /// Vitesse maximal.
         /// </summary>
         protected Vector2 MaxSpeed { get; set; }
+        
+        /// <summary>
+        /// Coefficient d'acceleration.
+        /// </summary>
+        protected float Acceleration { get; set; }
+        
+        /// <summary>
+        /// Coefficient de friction, correspond au ralentissement du joueur sans inputs.
+        /// </summary>
+        protected float Friction { get; set; }
 
         #endregion Propriétés
 
@@ -30,6 +40,8 @@ namespace SuperTutoriel.Classes.GameObjects
             this.Position = new Vector2(Constantes.WindowWidth/2, Constantes.WindowHeight - this.Origin.Y);
             this.Color = Color.White;
             this.MaxSpeed = new Vector2(7, 0);
+            this.Acceleration = 0.25f
+            this.Friction = 0.25f
         }
 
         #endregion Constructeur
@@ -49,24 +61,24 @@ namespace SuperTutoriel.Classes.GameObjects
             if (Keyboard.GetState().IsKeyDown(Keys.Left))
             {
                 // Si la vitesse n'est pas à sa valeur maximal, on accélere.
-                if (Math.Abs(this.Speed.X) < this.MaxSpeed.X) this.Speed += new Vector2(-0.25f, 0);
+                if (Math.Abs(this.Speed.X) < this.MaxSpeed.X) this.Speed += new Vector2(-Acceleration, 0);
             }
             else
             {
                 // On réduit la vitesse du joueur, si elle n'est pas déjà au minimum.
-                if(this.Speed.X < 0) this.Speed -= new Vector2(-0.25f, 0);
+                if(this.Speed.X < 0) this.Speed -= new Vector2(-Friction, 0);
             }
 
             // Gére l'input de déplacement vers la droite.
             if (Keyboard.GetState().IsKeyDown(Keys.Right))
             {
                 // Si la vitesse n'est pas à sa valeur maximal, on accélere.
-                if (Math.Abs(this.Speed.X) < this.MaxSpeed.X) this.Speed += new Vector2(0.25f, 0);
+                if (Math.Abs(this.Speed.X) < this.MaxSpeed.X) this.Speed += new Vector2(Acceleration, 0);
             }
             else
             {
                 // On réduit la vitesse du joueur, si elle n'est pas déjà au minimum.
-                if (this.Speed.X > 0) this.Speed -= new Vector2(0.25f, 0);
+                if (this.Speed.X > 0) this.Speed -= new Vector2(Friction, 0);
             }
 
 
