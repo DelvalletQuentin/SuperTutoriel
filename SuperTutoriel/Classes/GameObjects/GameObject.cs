@@ -18,12 +18,12 @@ namespace SuperTutoriel.Classes.GameObjects
         /// <summary>
         /// Point d'origine de la texture, placé au milieu de la texture.
         /// </summary>
-        protected Vector2 Origin { get { return new Vector2(Sprite.Width / 2, Sprite.Height / 2); } }
+        protected Vector2 Origin { get; set; }
 
         /// <summary>
         /// Rectangle de collision de l'objet.
         /// </summary>
-        public Rectangle Rectangle { get { return new Rectangle((int)(Position.X - Origin.X), (int)(Position.Y - Origin.Y), Sprite.Width, Sprite.Height); } }
+        public Rectangle Rectangle { get; set; }
 
         /// <summary>
         /// Position actuelle de l'objet. Correspond au point en haut à gauche du rectangle.
@@ -61,6 +61,8 @@ namespace SuperTutoriel.Classes.GameObjects
         public virtual void Update(GameTime gameTime)
         {
             this.Position += this.Speed;
+            this.Rectangle = new Rectangle((int)(Position.X - Origin.X), (int)(Position.Y - Origin.Y), Sprite.Width, Sprite.Height);
+            this.Origin = new Vector2(Sprite.Width / 2, Sprite.Height / 2);
         }
 
         /// <summary>
