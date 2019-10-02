@@ -46,7 +46,7 @@ namespace SuperTutoriel.Classes.GameObjects
 
 
             // Gére l'input de déplacement vers la gauche.
-            if (Keyboard.GetState().IsKeyDown(Keys.Left))
+            if (Keyboard.GetState().IsKeyDown(Keys.Left) || Keyboard.GetState().IsKeyDown(Keys.A) || Keyboard.GetState().IsKeyDown(Keys.Q))
             {
                 // Si la vitesse n'est pas à sa valeur maximal, on accélere.
                 if (Math.Abs(this.Speed.X) < this.MaxSpeed.X) this.Speed += new Vector2(-0.25f, 0);
@@ -58,7 +58,7 @@ namespace SuperTutoriel.Classes.GameObjects
             }
 
             // Gére l'input de déplacement vers la droite.
-            if (Keyboard.GetState().IsKeyDown(Keys.Right))
+            if (Keyboard.GetState().IsKeyDown(Keys.Right)|| Keyboard.GetState().IsKeyDown(Keys.D))
             {
                 // Si la vitesse n'est pas à sa valeur maximal, on accélere.
                 if (Math.Abs(this.Speed.X) < this.MaxSpeed.X) this.Speed += new Vector2(0.25f, 0);
