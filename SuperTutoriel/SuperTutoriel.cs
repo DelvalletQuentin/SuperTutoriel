@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using SuperTutoriel.Classes.GameObjects;
@@ -47,10 +47,10 @@ namespace SuperTutoriel
         #region Draw & Update
         
         /// <summary>
-        /// Allows the game to run logic such as updating the world,
-        /// checking for collisions, gathering input, and playing audio.
+        /// Permet au jeu de mettre à jour la logique du monde.
+        /// On vérifie les collisions, on met à jour les positions, on gère les inputs.
         /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        /// <param name="gameTime">Correspond aux temps de jeux.</param>
         protected override void Update(GameTime gameTime)
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
@@ -63,9 +63,9 @@ namespace SuperTutoriel
         }
 
         /// <summary>
-        /// This is called when the game should draw itself.
+        /// Permet d'afficher tout les éléments du monde.
         /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        /// <param name="gameTime">Correspond aux temps de jeux.</param>
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(new Color(75,75,75));
@@ -80,10 +80,8 @@ namespace SuperTutoriel
         #region Méthodes
 
         /// <summary>
-        /// Allows the game to perform any initialization it needs to before starting to run.
-        /// This is where it can query for any required services and load any non-graphic
-        /// related content.  Calling base.Initialize will enumerate through any components
-        /// and initialize them as well.
+        /// Permet au jeu d'initialiser tout ses éléments avant de démarrer.
+        /// Le chargement de tout les éléments non graphiques vont être chargés.
         /// </summary>
         protected override void Initialize()
         {
@@ -94,12 +92,11 @@ namespace SuperTutoriel
         }
 
         /// <summary>
-        /// LoadContent will be called once per game and is the place to load
-        /// all of your content.
+        /// Permet de charger les éléments graphiques.
         /// </summary>
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
+            // Création d'un nouveau spritebatch pour afficher le monde.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             TextureManager.LoadContent(Content);
@@ -108,8 +105,7 @@ namespace SuperTutoriel
         }
 
         /// <summary>
-        /// UnloadContent will be called once per game and is the place to unload
-        /// game-specific content.
+        /// Appelé lors de la fin du jeu. Ici on décharge tout les éléments chargés auparavant.
         /// </summary>
         protected override void UnloadContent()
         {
