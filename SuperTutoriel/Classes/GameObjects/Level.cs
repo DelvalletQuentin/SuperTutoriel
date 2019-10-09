@@ -59,7 +59,7 @@ namespace SuperTutoriel.Classes.GameObjects
         }
 
         /// <summary>
-        /// Affiche l'objet.
+        /// Affiche les éléments du niveau.
         /// </summary>
         /// <param name="spriteBatch">Permet de regrouper l'affichage de texture ou de texte.</param>
         public void Draw(SpriteBatch spriteBatch)
@@ -67,8 +67,8 @@ namespace SuperTutoriel.Classes.GameObjects
             spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, Matrix.CreateTranslation(ScreenShakeManager.ScreenShake.X, ScreenShakeManager.ScreenShake.Y, 0));
 
             Player.Draw(spriteBatch);
-            Balls.ForEach(x => x.Draw(spriteBatch));
             Bricks.ForEach(x => x.Draw(spriteBatch));
+            Balls.ForEach(x => x.Draw(spriteBatch));
 
             spriteBatch.End();
         }
